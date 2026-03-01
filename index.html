@@ -27,6 +27,7 @@
 
   .project-bar { background: #111827; color: #fff; padding: 12px 20px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 1rem; margin-bottom: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
   .project-bar .lvl { font-size: 0.7rem; opacity: 0.4; margin-right: 8px; }
+  .project-bar .wbs-id { font-size: 0.8rem; opacity: 0.6; margin-right: 8px; }
 
   .del-legend { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; font-size: 0.75rem; color: #9ca3af; }
   .del-legend .dashed-sample { border: 1px dashed #f97316; padding: 1px 8px; border-radius: 4px; }
@@ -61,15 +62,15 @@
   <p class="meta">Phase-Based Hierarchy · 4 Levels · Weeks 1–6</p>
 
   <div class="legend">
-    <span class="l1">Level 1: Project</span><span class="arrow">→</span>
-    <span class="l2">Level 2: Phase</span><span class="arrow">→</span>
-    <span class="l3">Level 3: Work Package</span><span class="arrow">→</span>
-    <span class="l4">Level 4: Activity</span>
+    <span class="l1">Level 1: Project (1.0)</span><span class="arrow">→</span>
+    <span class="l2">Level 2: Phase (1.x)</span><span class="arrow">→</span>
+    <span class="l3">Level 3: Work Package (1.x.x)</span><span class="arrow">→</span>
+    <span class="l4">Level 4: Activity (1.x.x.x)</span>
   </div>
 
   <div class="filters" id="filters"></div>
 
-  <div class="project-bar"><span class="lvl">Level 1</span>Student Resell Prototype Project</div>
+  <div class="project-bar"><span class="lvl">Level 1</span><span class="wbs-id">1.0</span>Student Resell Prototype Project</div>
   <div class="del-legend"><span>📋 = Key Deliverable</span><span class="dashed-sample">Dashed border = Deliverable item</span></div>
 
   <div class="grid" id="grid"></div>
@@ -78,137 +79,137 @@
 
 <script>
 const phases = [
-  { id:"1.0", label:"Initiation Phase", week:"Week 1", tag:"Initiation", bg:"#DBEAFE", border:"#3B82F6", header:"#1E40AF",
+  { id:"1.1", label:"Initiation Phase", week:"Week 1", tag:"Initiation", bg:"#DBEAFE", border:"#3B82F6", header:"#1E40AF",
     children:[
-      { id:"1.1", label:"Project Authorization", children:[
-        {id:"1.1.1",label:"Define Project Objectives & Success Criteria"},
-        {id:"1.1.2",label:"Identify Stakeholders (Innovation Lab, NEU Leadership)"},
-        {id:"1.1.3",label:"Develop High-Level Scope Statement (In-Scope & Out-of-Scope)"},
-        {id:"1.1.4",label:"Assign Team Roles & Responsibilities"}
+      { id:"1.1.1", label:"Project Authorization", children:[
+        {id:"1.1.1.1",label:"Define Project Objectives & Success Criteria"},
+        {id:"1.1.1.2",label:"Identify Stakeholders (Innovation Lab, NEU Leadership)"},
+        {id:"1.1.1.3",label:"Develop High-Level Scope Statement (In-Scope & Out-of-Scope)"},
+        {id:"1.1.1.4",label:"Assign Team Roles & Responsibilities"}
       ]},
-      { id:"1.2", label:"Risk & Constraints", children:[
-        {id:"1.2.1",label:"Identify Assumptions & Constraints"},
-        {id:"1.2.2",label:"Develop Initial Risk Register"},
-        {id:"1.2.3",label:"Define High-Level Milestones (Weeks 1–6)"}
+      { id:"1.1.2", label:"Risk & Constraints", children:[
+        {id:"1.1.2.1",label:"Identify Assumptions & Constraints"},
+        {id:"1.1.2.2",label:"Develop Initial Risk Register"},
+        {id:"1.1.2.3",label:"Define High-Level Milestones (Weeks 1–6)"}
       ]},
-      { id:"1.3", label:"Charter Approval", children:[
-        {id:"1.3.1",label:"Draft Project Charter Document"},
-        {id:"1.3.2",label:"Conduct Internal Team Review"},
-        {id:"1.3.3",label:"Obtain Stakeholder Sign-Off"},
-        {id:"1.3.4",label:"Approved Project Charter (Deliverable)"}
+      { id:"1.1.3", label:"Charter Approval", children:[
+        {id:"1.1.3.1",label:"Draft Project Charter Document"},
+        {id:"1.1.3.2",label:"Conduct Internal Team Review"},
+        {id:"1.1.3.3",label:"Obtain Stakeholder Sign-Off"},
+        {id:"1.1.3.4",label:"Approved Project Charter (Deliverable)"}
       ]}
     ]},
-  { id:"2.0", label:"Planning Phase", week:"Week 2", tag:"Planning", bg:"#DCF5E7", border:"#22C55E", header:"#166534",
+  { id:"1.2", label:"Planning Phase", week:"Week 2", tag:"Planning", bg:"#DCF5E7", border:"#22C55E", header:"#166534",
     children:[
-      { id:"2.1", label:"Product Requirements Document (PRD)", children:[
-        {id:"2.1.1",label:"Define Functional Requirements (Registration, Login/Logout, Listings, Browse, Search, Messaging, Mark Sold, Delete, Report)"},
-        {id:"2.1.2",label:"Define Non-Functional Requirements (Usability, Security, Performance)"},
-        {id:"2.1.3",label:"Define Technical Requirements (Backend Database, Image Upload, iOS Platform)"},
-        {id:"2.1.4",label:"Define MVP Scope & Feature Priority"},
-        {id:"2.1.5",label:"Review & Finalize PRD"},
-        {id:"2.1.6",label:"Approved PRD (Deliverable)"}
+      { id:"1.2.1", label:"Product Requirements Document (PRD)", children:[
+        {id:"1.2.1.1",label:"Define Functional Requirements (Registration, Login/Logout, Listings, Browse, Search, Messaging, Mark Sold, Delete, Report)"},
+        {id:"1.2.1.2",label:"Define Non-Functional Requirements (Usability, Security, Performance)"},
+        {id:"1.2.1.3",label:"Define Technical Requirements (Backend Database, Image Upload, iOS Platform)"},
+        {id:"1.2.1.4",label:"Define MVP Scope & Feature Priority"},
+        {id:"1.2.1.5",label:"Review & Finalize PRD"},
+        {id:"1.2.1.6",label:"Approved PRD (Deliverable)"}
       ]},
-      { id:"2.2", label:"UX Wireframes", children:[
-        {id:"2.2.1",label:"Map User Flows (Sign-Up, Create Listing, Browse/Search, Message, Mark Sold)"},
-        {id:"2.2.2",label:"Develop Low-Fidelity Wireframes for All Key Screens"},
-        {id:"2.2.3",label:"Conduct Wireframe Team Review"},
-        {id:"2.2.4",label:"Incorporate Feedback & Revise"},
-        {id:"2.2.5",label:"Approved UX Wireframe Set (Deliverable)"}
+      { id:"1.2.2", label:"UX Wireframes", children:[
+        {id:"1.2.2.1",label:"Map User Flows (Sign-Up, Create Listing, Browse/Search, Message, Mark Sold)"},
+        {id:"1.2.2.2",label:"Develop Low-Fidelity Wireframes for All Key Screens"},
+        {id:"1.2.2.3",label:"Conduct Wireframe Team Review"},
+        {id:"1.2.2.4",label:"Incorporate Feedback & Revise"},
+        {id:"1.2.2.5",label:"Approved UX Wireframe Set (Deliverable)"}
       ]},
-      { id:"2.3", label:"Project Planning Artifacts", children:[
-        {id:"2.3.1",label:"Develop Work Breakdown Structure (WBS)"},
-        {id:"2.3.2",label:"Develop Project Schedule (Weeks 1–6 Timeline)"},
-        {id:"2.3.3",label:"Define Communication Plan (Status Report Cadence)"},
-        {id:"2.3.4",label:"Finalize Risk Management Approach"}
+      { id:"1.2.3", label:"Project Planning Artifacts", children:[
+        {id:"1.2.3.1",label:"Develop Work Breakdown Structure (WBS)"},
+        {id:"1.2.3.2",label:"Develop Project Schedule (Weeks 1–6 Timeline)"},
+        {id:"1.2.3.3",label:"Define Communication Plan (Status Report Cadence)"},
+        {id:"1.2.3.4",label:"Finalize Risk Management Approach"}
       ]},
-      { id:"2.4", label:"Weekly Status Report", children:[
-        {id:"2.4.1",label:"Week 2 Status Report (Deliverable)"}
+      { id:"1.2.4", label:"Weekly Status Report", children:[
+        {id:"1.2.4.1",label:"Week 2 Status Report (Deliverable)"}
       ]}
     ]},
-  { id:"3.0", label:"Design Phase", week:"Weeks 3–4", tag:"Design", bg:"#FEF3C7", border:"#F59E0B", header:"#92400E",
+  { id:"1.3", label:"Design Phase", week:"Weeks 3–4", tag:"Design", bg:"#FEF3C7", border:"#F59E0B", header:"#92400E",
     children:[
-      { id:"3.1", label:"Visual Design System", children:[
-        {id:"3.1.1",label:"Define Style Guide (Colors, Typography, Iconography)"},
-        {id:"3.1.2",label:"Design Reusable UI Components (Buttons, Cards, Nav Bars)"},
-        {id:"3.1.3",label:"Apply NEU Branding Guidelines"}
+      { id:"1.3.1", label:"Visual Design System", children:[
+        {id:"1.3.1.1",label:"Define Style Guide (Colors, Typography, Iconography)"},
+        {id:"1.3.1.2",label:"Design Reusable UI Components (Buttons, Cards, Nav Bars)"},
+        {id:"1.3.1.3",label:"Apply NEU Branding Guidelines"}
       ]},
-      { id:"3.2", label:"High-Fidelity Screen Design (10+ Screens)", children:[
-        {id:"3.2.1",label:"Sign-Up Screen (University Email Registration)"},
-        {id:"3.2.2",label:"Login / Logout Screen"},
-        {id:"3.2.3",label:"Home Feed / Browse Screen"},
-        {id:"3.2.4",label:"Category Browse Screen"},
-        {id:"3.2.5",label:"Search Results Screen"},
-        {id:"3.2.6",label:"Listing Detail Screen"},
-        {id:"3.2.7",label:"Create Listing Screen (Photo, Title, Price, Description, Location)"},
-        {id:"3.2.8",label:"Messaging Inbox Screen"},
-        {id:"3.2.9",label:"Message Conversation Screen"},
-        {id:"3.2.10",label:"Mark as Sold / Delete Listing Screen"},
-        {id:"3.2.11",label:"Report Listing Screen"},
-        {id:"3.2.12",label:"User Profile Screen"}
+      { id:"1.3.2", label:"High-Fidelity Screen Design (10+ Screens)", children:[
+        {id:"1.3.2.1",label:"Sign-Up Screen (University Email Registration)"},
+        {id:"1.3.2.2",label:"Login / Logout Screen"},
+        {id:"1.3.2.3",label:"Home Feed / Browse Screen"},
+        {id:"1.3.2.4",label:"Category Browse Screen"},
+        {id:"1.3.2.5",label:"Search Results Screen"},
+        {id:"1.3.2.6",label:"Listing Detail Screen"},
+        {id:"1.3.2.7",label:"Create Listing Screen (Photo, Title, Price, Description, Location)"},
+        {id:"1.3.2.8",label:"Messaging Inbox Screen"},
+        {id:"1.3.2.9",label:"Message Conversation Screen"},
+        {id:"1.3.2.10",label:"Mark as Sold / Delete Listing Screen"},
+        {id:"1.3.2.11",label:"Report Listing Screen"},
+        {id:"1.3.2.12",label:"User Profile Screen"}
       ]},
-      { id:"3.3", label:"Design Review & Iteration", children:[
-        {id:"3.3.1",label:"Conduct Internal Design Review"},
-        {id:"3.3.2",label:"Incorporate Feedback & Revise Screens"},
-        {id:"3.3.3",label:"Document Design Decisions & Rationale"}
+      { id:"1.3.3", label:"Design Review & Iteration", children:[
+        {id:"1.3.3.1",label:"Conduct Internal Design Review"},
+        {id:"1.3.3.2",label:"Incorporate Feedback & Revise Screens"},
+        {id:"1.3.3.3",label:"Document Design Decisions & Rationale"}
       ]},
-      { id:"3.4", label:"Weekly Status Reports", children:[
-        {id:"3.4.1",label:"Week 3 Status Report (Deliverable)"},
-        {id:"3.4.2",label:"Week 4 Status Report (Deliverable)"}
+      { id:"1.3.4", label:"Weekly Status Reports", children:[
+        {id:"1.3.4.1",label:"Week 3 Status Report (Deliverable)"},
+        {id:"1.3.4.2",label:"Week 4 Status Report (Deliverable)"}
       ]}
     ]},
-  { id:"4.0", label:"Prototype Build Phase", week:"Week 5", tag:"Prototype Build", bg:"#F3E8FF", border:"#A855F7", header:"#6B21A8",
+  { id:"1.4", label:"Prototype Build Phase", week:"Week 5", tag:"Prototype Build", bg:"#F3E8FF", border:"#A855F7", header:"#6B21A8",
     children:[
-      { id:"4.1", label:"Interactive Prototype Assembly (Figma or Similar)", children:[
-        {id:"4.1.1",label:"Import All High-Fidelity Screens into Prototype Tool"},
-        {id:"4.1.2",label:"Link Screens with Navigation Flows & Transitions"},
-        {id:"4.1.3",label:"Add Click/Tap Interactions & Hotspots"},
-        {id:"4.1.4",label:"Build User Journey: Sign-Up → Create Listing → Browse/Search → Message → Mark Sold"}
+      { id:"1.4.1", label:"Interactive Prototype Assembly (Figma or Similar)", children:[
+        {id:"1.4.1.1",label:"Import All High-Fidelity Screens into Prototype Tool"},
+        {id:"1.4.1.2",label:"Link Screens with Navigation Flows & Transitions"},
+        {id:"1.4.1.3",label:"Add Click/Tap Interactions & Hotspots"},
+        {id:"1.4.1.4",label:"Build User Journey: Sign-Up → Create Listing → Browse/Search → Message → Mark Sold"}
       ]},
-      { id:"4.2", label:"Prototype Validation", children:[
-        {id:"4.2.1",label:"Verify 10+ Clickable Screens Included"},
-        {id:"4.2.2",label:"Conduct Full User Journey Walkthrough"},
-        {id:"4.2.3",label:"Test All Navigation Paths & Interactions"},
-        {id:"4.2.4",label:"Fix Identified Usability Issues"}
+      { id:"1.4.2", label:"Prototype Validation", children:[
+        {id:"1.4.2.1",label:"Verify 10+ Clickable Screens Included"},
+        {id:"1.4.2.2",label:"Conduct Full User Journey Walkthrough"},
+        {id:"1.4.2.3",label:"Test All Navigation Paths & Interactions"},
+        {id:"1.4.2.4",label:"Fix Identified Usability Issues"}
       ]},
-      { id:"4.3", label:"Demo Preparation", children:[
-        {id:"4.3.1",label:"Develop Stakeholder Demo Script"},
-        {id:"4.3.2",label:"Prepare Presentation Materials"},
-        {id:"4.3.3",label:"Conduct Internal Demo Rehearsal"}
+      { id:"1.4.3", label:"Demo Preparation", children:[
+        {id:"1.4.3.1",label:"Develop Stakeholder Demo Script"},
+        {id:"1.4.3.2",label:"Prepare Presentation Materials"},
+        {id:"1.4.3.3",label:"Conduct Internal Demo Rehearsal"}
       ]},
-      { id:"4.4", label:"Prototype Deliverables", children:[
-        {id:"4.4.1",label:"Interactive Clickable Prototype (Deliverable)"},
-        {id:"4.4.2",label:"Week 5 Status Report (Deliverable)"}
+      { id:"1.4.4", label:"Prototype Deliverables", children:[
+        {id:"1.4.4.1",label:"Interactive Clickable Prototype (Deliverable)"},
+        {id:"1.4.4.2",label:"Week 5 Status Report (Deliverable)"}
       ]}
     ]},
-  { id:"5.0", label:"Review & Feedback Phase", week:"Week 6", tag:"Review", bg:"#FFE4E6", border:"#F43F5E", header:"#9F1239",
+  { id:"1.5", label:"Review & Feedback Phase", week:"Week 6", tag:"Review", bg:"#FFE4E6", border:"#F43F5E", header:"#9F1239",
     children:[
-      { id:"5.1", label:"Stakeholder Prototype Demo", children:[
-        {id:"5.1.1",label:"Schedule Demo Session with NEU Leadership"},
-        {id:"5.1.2",label:"Conduct Live Prototype Demonstration"},
-        {id:"5.1.3",label:"Collect Stakeholder Feedback"}
+      { id:"1.5.1", label:"Stakeholder Prototype Demo", children:[
+        {id:"1.5.1.1",label:"Schedule Demo Session with NEU Leadership"},
+        {id:"1.5.1.2",label:"Conduct Live Prototype Demonstration"},
+        {id:"1.5.1.3",label:"Collect Stakeholder Feedback"}
       ]},
-      { id:"5.2", label:"Feedback Analysis", children:[
-        {id:"5.2.1",label:"Categorize Feedback by Theme"},
-        {id:"5.2.2",label:"Identify Strengths & Areas for Improvement"},
-        {id:"5.2.3",label:"Recommend Next Steps for Full Development"},
-        {id:"5.2.4",label:"Prototype Review & Feedback Summary (Deliverable)"}
+      { id:"1.5.2", label:"Feedback Analysis", children:[
+        {id:"1.5.2.1",label:"Categorize Feedback by Theme"},
+        {id:"1.5.2.2",label:"Identify Strengths & Areas for Improvement"},
+        {id:"1.5.2.3",label:"Recommend Next Steps for Full Development"},
+        {id:"1.5.2.4",label:"Prototype Review & Feedback Summary (Deliverable)"}
       ]},
-      { id:"5.3", label:"Weekly Status Report", children:[
-        {id:"5.3.1",label:"Week 6 Status Report (Deliverable)"}
+      { id:"1.5.3", label:"Weekly Status Report", children:[
+        {id:"1.5.3.1",label:"Week 6 Status Report (Deliverable)"}
       ]}
     ]},
-  { id:"6.0", label:"Closure Phase", week:"Week 6", tag:"Closure", bg:"#E0F2FE", border:"#0EA5E9", header:"#0C4A6E",
+  { id:"1.6", label:"Closure Phase", week:"Week 6", tag:"Closure", bg:"#E0F2FE", border:"#0EA5E9", header:"#0C4A6E",
     children:[
-      { id:"6.1", label:"Lessons Learned", children:[
-        {id:"6.1.1",label:"Conduct Lessons Learned Session with Team"},
-        {id:"6.1.2",label:"Document Key Findings, Successes & Challenges"},
-        {id:"6.1.3",label:"Compile Recommendations for Future Projects"},
-        {id:"6.1.4",label:"Lessons Learned Report (Deliverable)"}
+      { id:"1.6.1", label:"Lessons Learned", children:[
+        {id:"1.6.1.1",label:"Conduct Lessons Learned Session with Team"},
+        {id:"1.6.1.2",label:"Document Key Findings, Successes & Challenges"},
+        {id:"1.6.1.3",label:"Compile Recommendations for Future Projects"},
+        {id:"1.6.1.4",label:"Lessons Learned Report (Deliverable)"}
       ]},
-      { id:"6.2", label:"Project Archive", children:[
-        {id:"6.2.1",label:"Compile All Project Documentation"},
-        {id:"6.2.2",label:"Archive Final Deliverables (Charter, PRD, Wireframes, Prototype, Reports)"},
-        {id:"6.2.3",label:"Formal Project Close-Out"}
+      { id:"1.6.2", label:"Project Archive", children:[
+        {id:"1.6.2.1",label:"Compile All Project Documentation"},
+        {id:"1.6.2.2",label:"Archive Final Deliverables (Charter, PRD, Wireframes, Prototype, Reports)"},
+        {id:"1.6.2.3",label:"Formal Project Close-Out"}
       ]}
     ]}
 ];
@@ -220,15 +221,13 @@ function render() {
   const gridEl = document.getElementById("grid");
   const summaryEl = document.getElementById("summary");
 
-  // Filters
-  let fhtml = `<button class="${currentView==='all'?'active-all':''}" onclick="setView('all')" style="${currentView==='all'?'':'color:#4b5563;border-color:#d1d5db;'}"">All Phases</button>`;
+  let fhtml = `<button class="${currentView==='all'?'active-all':''}" onclick="setView('all')" style="${currentView==='all'?'':'color:#4b5563;border-color:#d1d5db;'}">All Phases</button>`;
   phases.forEach(p => {
     const active = currentView === p.id;
     fhtml += `<button onclick="setView('${p.id}')" style="background:${active?p.border:'#fff'};color:${active?'#fff':p.header};border-color:${p.border};">${p.id} ${p.tag}</button>`;
   });
   filtersEl.innerHTML = fhtml;
 
-  // Grid
   const shown = currentView === "all" ? phases : phases.filter(p => p.id === currentView);
   gridEl.style.gridTemplateColumns = currentView === "all" ? "1fr 1fr" : "1fr";
   if(window.innerWidth < 768) gridEl.style.gridTemplateColumns = "1fr";
@@ -256,11 +255,10 @@ function render() {
   });
   gridEl.innerHTML = ghtml;
 
-  // Summary
   let pc=0, wc=0, ac=0;
   phases.forEach(p=>{pc++;p.children.forEach(w=>{wc++;if(w.children)w.children.forEach(()=>{ac++;});});});
-  summaryEl.innerHTML = `<strong>WBS Summary:</strong> 1 Project (Level 1) · ${pc} Phases (Level 2) · ${wc} Work Packages (Level 3) · ${ac} Activities (Level 4)<br>
-  <strong>Hierarchy:</strong> Phase-based | <strong>4 Levels:</strong> Level 1 (Project) → Level 2 (Phase) → Level 3 (Work Package) → Level 4 (Activity)<br>
+  summaryEl.innerHTML = `<strong>WBS Summary:</strong> 1.0 Project (Level 1) · ${pc} Phases (Level 2) · ${wc} Work Packages (Level 3) · ${ac} Activities (Level 4)<br>
+  <strong>Hierarchy:</strong> Phase-based | <strong>4 Levels:</strong> Level 1: 1.0 (Project) → Level 2: 1.x (Phase) → Level 3: 1.x.x (Work Package) → Level 4: 1.x.x.x (Activity)<br>
   <strong>Key Deliverables:</strong> Project Charter · PRD · UX Wireframes · Interactive Clickable Prototype (10+ screens) · Weekly Status Reports (Wk 2–6) · Prototype Review & Feedback Summary · Lessons Learned Report`;
 }
 
